@@ -1,0 +1,62 @@
+//install docker
+sudo apt install docker.io
+
+//check version
+docker --version
+
+//docker service is running or not
+sudo systemctl status docker
+
+//Check the system information
+sudo docker info
+
+//Check the disk usage for different components
+sudo docker system df
+
+//Search available images from docker registry
+sudo docker search httpd
+
+//To get the httpd image from docker registry to local machine
+sudo docker pull httpd 
+
+//To check the running containers and their details
+sudo docker ps
+
+//To create a container and run the container
+sudo docker create --name webpage1 httpd
+
+//Force Remove the running container
+sudo docker rm -f webpage1
+
+//Login and manage the running container
+sudo docker exec -it webpage1 /bin/bash
+
+//Copy a file from local machine to container
+sudo docker cp question.txt webpage1:/tmp
+
+
+1. Dataset
+2. Clean Missing Data
+3. Select Columns in dataset
+4.Two Class Boosed Descision Three 5. Split Data
+7. Train Model
+8.Score model
+9. Evaluate Model
+
+Enter the below content and save the Dockerfile
+# Use OpenJDK as the base image
+FROM openjdk:17
+# Set the working directory
+WORKDIR /app
+# Copy the Java source code to the container
+COPY HelloWorld.java /app
+# Compile the Java source code
+RUN javac HelloWorld.java
+# Set the command to run the Java application
+CMD ["java", "HelloWorld"]
+
+//to build docker code
+sudo docker build -t helloworld.java:version1 .
+
+//to run docker container
+sudo docker run hello.java:version1
