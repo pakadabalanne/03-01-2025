@@ -34,6 +34,9 @@ sudo docker exec -it webpage1 /bin/bash
 //Copy a file from local machine to container
 sudo docker cp question.txt webpage1:/tmp
 
+//display copied file
+sudo docker exec webpage1 ls /tmp
+
 
 1. Dataset
 2. Clean Missing Data
@@ -43,7 +46,19 @@ sudo docker cp question.txt webpage1:/tmp
 8.Score model
 9. Evaluate Model
 
+cd mkdir "filename"
+cd "filename"
+
+sudo nano hello.java
+
+public class hello{
+	public static void main(String[]args){
+		Syste.out.println("HelloWorld");
+	}
+}
+
 Enter the below content and save the Dockerfile
+
 # Use OpenJDK as the base image
 FROM openjdk:17
 # Set the working directory
@@ -60,3 +75,9 @@ sudo docker build -t helloworld.java:version1 .
 
 //to run docker container
 sudo docker run hello.java:version1
+
+
+FROM ubuntu
+MAINTAINER Suja<suja@gmail.com>
+RUN apt-get update
+CMD ["echo","Hello World..!"]
